@@ -2,13 +2,13 @@ from tkinter import *
 import time
 from tkinter import messagebox
 import csms
-
+import connection_db
 #functionality part
 
 def on_enter(event): 
-    connect_button.config(bg="orange")
+    connect_button.config(bg="thistle2",fg="gray10")
 def on_leave(event): 
-    connect_button.config(bg="#90EE90")
+    connect_button.config(bg="khaki2")
 
 def clock():
     date = time.strftime('%d/%m/%Y') 
@@ -38,33 +38,33 @@ def connect_to_database():
                csms.main()
 
      loginWindow = Toplevel()
-     loginWindow.geometry("500x270+520+300")
+     loginWindow.geometry("500x270+480+300")
      loginWindow.title("Login Credentials")
      loginWindow.resizable(0,0)
-     loginWindow.configure(bg="pink")
+     loginWindow.configure(bg="pale goldenrod")
      loginWindow.grab_set()
      
      hostnameImage = PhotoImage(file='./Images/hostname.png')
-     hostnameLabel = Label(loginWindow,image=hostnameImage,text = 'Host Name',font=('arial',16,'bold'),compound=LEFT,bg="pink")
-     hostnameLabel.place(x=70, y=50)
-     hostnameEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="royalblue",bd=3)
+     hostnameLabel = Label(loginWindow,image=hostnameImage,text = 'Host Name',font=('Georgia',16,'bold'),compound=LEFT,bg="pale goldenrod")
+     hostnameLabel.place(x=60, y=50)
+     hostnameEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="midnight blue",bd=3)
      hostnameEntry.place(x=240, y=57)
 
      usernameImage = PhotoImage(file='./Images/username.png')
-     usernameLabel = Label(loginWindow,image=usernameImage,text='User Name',font=('arial',16,'bold'),compound=LEFT,bg="pink")
-     usernameLabel.place(x=70, y=95)
-     usernameEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="royalblue",bd=3)
+     usernameLabel = Label(loginWindow,image=usernameImage,text='User Name',font=('Georgia',16,'bold'),compound=LEFT,bg="pale goldenrod")
+     usernameLabel.place(x=60, y=95)
+     usernameEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="midnight blue",bd=3)
      usernameEntry.place(x=240, y=102)
 
      passwordImage = PhotoImage(file='./Images/password.png')
-     passwordLabel = Label(loginWindow,image=passwordImage,text='Password',font=('arial',16,'bold'),compound=LEFT,bg="pink")
-     passwordLabel.place(x=70, y=145)
-     passwordEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="royalblue",bd=3)
+     passwordLabel = Label(loginWindow,image=passwordImage,text='Password',font=('Georgia',16,'bold'),compound=LEFT,bg="pale goldenrod")
+     passwordLabel.place(x=60, y=145)
+     passwordEntry = Entry(loginWindow,font=('times new roman',13,'bold'),fg="midnight blue",bd=3)
      passwordEntry.place(x=240, y=152)
 
-     loginButton = Button(loginWindow,command=login,text="Login",font=("Arial", 12, "bold"),width=10,bg = "cornflowerblue",
-                         fg="white",activebackground="cornflowerblue",cursor="hand2")
-     loginButton.place(x=190,y=200)
+     loginButton = Button(loginWindow,command=login,text="Login",font=("Georgia", 12, "bold"),width=10,bg = "sandy brown",
+                         fg="gray5",activebackground="wheat1",activeforeground="gray10",cursor="hand2")
+     loginButton.place(x=270,y=200)
 
      loginWindow.mainloop()
 
@@ -72,11 +72,11 @@ def connect_to_database():
 
 window = Tk()
 window.title("Database Connection")
-window.geometry("1520x780+2+2")
+window.geometry("1275x770-1+0")
 window.grab_set()
 
 # Create a Canvas widget
-canvas = Canvas(window, width=1530, height=790)
+canvas = Canvas(window, width=1500, height=770)
 
 # Load the background image
 background_image = PhotoImage(file="./Images/db.png")
@@ -86,13 +86,13 @@ canvas.create_image(0, 0, anchor=NW, image=background_image)
 canvas.place(x=-10,y=-10)
 canvas.pack()
 
-dateTimeLabel = Label(window,font = ('timew new roman',18,'bold'),bg="#0f133f",fg="white")
+dateTimeLabel = Label(window,font = ('time new roman',18,'bold'),bg="#0f133f",fg="white")
 dateTimeLabel.place(x=35,y=35)
 clock()
 
 # Create a label for the heading
 heading_label = Label(window, text="Welcome to the Cloth Store Management System", 
-                      font=("Arial", 24, "bold"),bg="#132049",fg="white")
+                      font=("Georgia", 26, "bold"),bg="#132049",fg="white")
 heading_label.place(x=450,y=330)
 
 # Create a button to connect to the database
@@ -100,8 +100,8 @@ connect_button = Button(window, text="Connect To Database",
                         command=connect_to_database,
                         width=18,
                         height=1,
-                        font=("Arial", 18, "bold"),
-                        bg = "#90EE90",
+                        font=("Georgia", 18, "bold"),
+                        bg = "khaki2",
                         cursor="hand2"
                         )   
 connect_button.place(x=360,y=400)
