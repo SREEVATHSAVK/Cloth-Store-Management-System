@@ -19,31 +19,31 @@ def connect_to_stock():
         window = Toplevel()
         window.geometry("450x330+550+250")
         window.title(title)
-        window.config(bg="pink") 
+        window.config(bg="blanched almond") 
         window.resizable(0,0)
         window.grab_set()
 
-        idLabel = Label(window,text = 'Stock ID',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        idLabel = Label(window,text = 'Stock ID',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         idLabel.place(x=20, y=30)
         idEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         idEntry.place(x=220, y=32)
 
-        amtLabel = Label(window,text = 'Amount',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        amtLabel = Label(window,text = 'Amount',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         amtLabel.place(x=20, y=90)
         amtEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         amtEntry.place(x=220, y=92)
 
-        dateLabel = Label(window,text = 'Stock Date',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        dateLabel = Label(window,text = 'Stock Date',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         dateLabel.place(x=20, y=150)
         dateEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         dateEntry.place(x=220, y=152)
 
-        secLabel = Label(window,text = 'Section',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        secLabel = Label(window,text = 'Section',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         secLabel.place(x=20, y=210)
         secEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         secEntry.place(x=220, y=212)
 
-        searchButton = Button(window,command=command,text=text,width=15,font=('times new roman',14,'bold'),bg = "#3EB489",cursor="hand2")
+        searchButton = Button(window,command=command,text=text,width=15,font=('times new roman',14,'bold'),bg = "sandy brown",cursor="hand2")
         searchButton.place(x = 140, y = 270)
 
         if title == 'Update Operation':
@@ -77,14 +77,14 @@ def connect_to_stock():
         window = Toplevel()
         window.geometry("450x200+540+280")
         window.title("Delete Operation")
-        window.config(bg="pink") 
+        window.config(bg="blanched almond") 
         window.resizable(0,0)
         window.grab_set()
 
-        display = Label(window,text='Did you select the row of stock table ?\n  If not, Please select the row of table',font=('arial',15,'bold'),bg='pink')
+        display = Label(window,text='Did you select the row of stock table ?\n  If not, Please select the row of table',font=('arial',15,'bold'),bg='blanched almond')
         display.place(x=20, y=30)
 
-        yesButton = Button(window,command=delete_data,text='YES',font=('arial',12,'bold'),width=6,bg='yellow',cursor="hand2")
+        yesButton = Button(window,command=delete_data,text='YES',font=('arial',12,'bold'),width=6,bg='sandy brown',cursor="hand2")
         yesButton.place(x=190,y=100)
 
     def search_data():
@@ -130,16 +130,16 @@ def connect_to_stock():
     root = Toplevel()
     style = ttk.Style(root)
     style.theme_use("default")
-    root.geometry("1400x750+65+15")
+    root.geometry("1275x770-1+0")
     root.title("Stock Table")
     root.config(bg='whitesmoke')
-    root.resizable(0,0)
+    # root.resizable(0,0)
 
     heading_label = Label(root,font=("Arial", 30,"bold"), pady=15,bg="whitesmoke")
     heading_label.pack()
 
     middleFrame = Frame(root, bg = "white",highlightbackground='black',highlightthickness=1)
-    middleFrame.place(x = 50,y = 100, width = 1300, height = 520)
+    middleFrame.place(x = 35,y = 100, width = 1200, height = 520)
 
     stockTable = ttk.Treeview(middleFrame,columns=('stock_id','s_amt','s_date','section'))
     stockTable.pack(fill=BOTH,expand=1)
@@ -155,20 +155,20 @@ def connect_to_stock():
 
     stockTable.config(show='headings')
     view()
-    addButton = Button(root,command=lambda: operations('Add Operation','ADD DATA',add_data),text='Insert',width=10,font=('times new roman',16,"bold"),bg='#00FF00',cursor="hand2")
-    addButton.place(x=150,y=650)
+    addButton = Button(root,command=lambda: operations('Add Operation','ADD DATA',add_data),text='Insert',width=10,font=('times new roman',16,"bold"),bg='orange',cursor="hand2")
+    addButton.place(x=35,y=650)
 
-    searchButton = Button(root,command=lambda: operations('Serach Operation','SEARCH DATA',search_data),text='Search',width=10,font=('times new roman',16,"bold"),bg='#DA70D6',cursor="hand2")
-    searchButton.place(x=400,y=650)
+    searchButton = Button(root,command=lambda: operations('Serach Operation','SEARCH DATA',search_data),text='Search',width=10,font=('times new roman',16,"bold"),bg='khaki3',cursor="hand2")
+    searchButton.place(x=300,y=650)
 
-    viewButton = Button(root,command=view,text='View Data',width=10,font=('times new roman',16,"bold"),bg='yellow',cursor="hand2")
-    viewButton.place(x=650,y=650)
+    viewButton = Button(root,command=view,text='View Data',width=10,font=('times new roman',16,"bold"),bg='bisque3',cursor="hand2")
+    viewButton.place(x=560,y=650)
 
-    deleteButton = Button(root,command=delete,text='Delete',width=10,font=('times new roman',16,"bold"),bg='red',cursor="hand2")
-    deleteButton.place(x=900,y=650)
+    deleteButton = Button(root,command=delete,text='Delete',width=10,font=('times new roman',16,"bold"),bg='OrangeRed2',cursor="hand2")
+    deleteButton.place(x=840,y=650)
 
-    updateButton = Button(root,command=lambda: operations('Update Operation','UPDATE DATA',update_data),text='Update',width=10,font=('times new roman',16,"bold"),bg='#A020F0',cursor="hand2")
-    updateButton.place(x=1150,y=650)
+    updateButton = Button(root,command=lambda: operations('Update Operation','UPDATE DATA',update_data),text='Update',width=10,font=('times new roman',16,"bold"),bg='thistle1',cursor="hand2")
+    updateButton.place(x=1100,y=650)
 
     style = ttk.Style()
     style.configure('Treeview',rowheight=25,font=('arial',12,'normal'))
