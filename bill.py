@@ -19,41 +19,41 @@ def connect_to_bill():
         window = Toplevel()
         window.geometry("450x450+550+150")
         window.title(title)
-        window.config(bg="pink") 
+        window.config(bg="blanched almond") 
         window.resizable(0,0)
         window.grab_set()
 
-        bidLabel = Label(window,text = 'Bill ID',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        bidLabel = Label(window,text = 'Bill ID',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         bidLabel.place(x=20, y=30)
         bidEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         bidEntry.place(x=220, y=32)
 
-        cidLabel = Label(window,text = 'Customer ID',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        cidLabel = Label(window,text = 'Customer ID',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         cidLabel.place(x=20, y=90)
         cidEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         cidEntry.place(x=220, y=92)
 
-        pidLabel = Label(window,text = 'Product ID',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        pidLabel = Label(window,text = 'Product ID',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         pidLabel.place(x=20, y=150)
         pidEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         pidEntry.place(x=220, y=152)
 
-        qtyLabel = Label(window,text = 'Quantity',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        qtyLabel = Label(window,text = 'Quantity',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         qtyLabel.place(x=20, y=210)
         qtyEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         qtyEntry.place(x=220, y=212)
 
-        amtLabel = Label(window,text = 'Amount',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        amtLabel = Label(window,text = 'Amount',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         amtLabel.place(x=20, y=270)
         amtEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         amtEntry.place(x=220, y=272)
 
-        purchaseLabel = Label(window,text = 'Purchase Date',font=('arial',16,'bold'),compound=LEFT,bg="pink")
+        purchaseLabel = Label(window,text = 'Purchase Date',font=('arial',16,'bold'),compound=LEFT,bg="blanched almond")
         purchaseLabel.place(x=20, y=330)
         purchaseEntry = Entry(window,font=('times new roman',13,'bold'),fg="black",bd=3)
         purchaseEntry.place(x=220, y=332)
 
-        searchButton = Button(window,command=command,text=text,width=15,font=('times new roman',14,'bold'),bg = "#3EB489",cursor="hand2")
+        searchButton = Button(window,command=command,text=text,width=15,font=('times new roman',14,'bold'),bg = "sandy brown",cursor="hand2")
         searchButton.place(x = 140, y = 390)
 
         if title == 'Update Operation':
@@ -89,14 +89,14 @@ def connect_to_bill():
         window = Toplevel()
         window.geometry("450x200+540+280")
         window.title("Delete Operation")
-        window.config(bg="pink") 
-        window.resizable(0,0)
+        window.config(bg="blanched almond") 
+        # window.resizable(0,0)
         window.grab_set()
 
-        display = Label(window,text='Did you select the row of customer table ?\n  If not, Please select the row of table',font=('arial',15,'bold'),bg='pink')
+        display = Label(window,text='Did you select the row of customer table ?\n  If not, Please select the row of table',font=('arial',15,'bold'),bg='blanched almond')
         display.place(x=20, y=30)
 
-        yesButton = Button(window,command=delete_data,text='YES',font=('arial',12,'bold'),width=6,bg='yellow',cursor="hand2")
+        yesButton = Button(window,command=delete_data,text='YES',font=('arial',12,'bold'),width=6,bg='sandy brown',cursor="hand2")
         yesButton.place(x=190,y=100)
 
     def search_data():
@@ -107,6 +107,8 @@ def connect_to_bill():
         fetched_data = mycursor.fetchall()
         for data in fetched_data:
             BillTable.insert('',END,values=data)
+    
+    
 
     def view():
         BillTable.delete(*BillTable.get_children())
@@ -144,16 +146,16 @@ def connect_to_bill():
     root = Toplevel()
     style = ttk.Style(root)
     style.theme_use("default")
-    root.geometry("1400x750+65+15")
+    root.geometry("1275x770-1+0")
     root.title("Customer Table")
     root.config(bg='whitesmoke')
-    root.resizable(0,0)
+    # root.resizable(0,0)
 
     heading_label = Label(root,font=("Arial", 30,"bold"), pady=15,bg="whitesmoke")
     heading_label.pack()
 
     middleFrame = Frame(root, bg = "white",highlightbackground='black',highlightthickness=1)
-    middleFrame.place(x = 50,y = 100, width = 1300, height = 520)
+    middleFrame.place(x = 35,y = 100, width = 1200, height = 520)
 
     BillTable = ttk.Treeview(middleFrame,columns=('bill_id','cid','pid','qty','amt','purchase_date'))
     BillTable.pack(fill=BOTH,expand=1)
@@ -173,20 +175,20 @@ def connect_to_bill():
 
     BillTable.config(show='headings')
     view()
-    addButton = Button(root,command=lambda: operations('Add Operation','ADD DATA',add_data),text='Insert',width=10,font=('times new roman',16,"bold"),bg='#00FF00',cursor="hand2")
-    addButton.place(x=150,y=650)
+    addButton = Button(root,command=lambda: operations('Add Operation','ADD DATA',add_data),text='Insert',width=10,font=('times new roman',16,"bold"),bg='orange',cursor="hand2")
+    addButton.place(x=35,y=650)
 
-    searchButton = Button(root,command=lambda: operations('Serach Operation','SEARCH DATA',search_data),text='Search',width=10,font=('times new roman',16,"bold"),bg='#DA70D6',cursor="hand2")
-    searchButton.place(x=400,y=650)
+    searchButton = Button(root,command=lambda: operations('Serach Operation','SEARCH DATA',search_data),text='Search',width=10,font=('times new roman',16,"bold"),bg='khaki3',cursor="hand2")
+    searchButton.place(x=300,y=650)
 
-    viewButton = Button(root,command=view,text='View Data',width=10,font=('times new roman',16,"bold"),bg='yellow',cursor="hand2")
-    viewButton.place(x=650,y=650)
+    viewButton = Button(root,command=view,text='View Data',width=10,font=('times new roman',16,"bold"),bg='bisque3',cursor="hand2")
+    viewButton.place(x=560,y=650)
 
-    deleteButton = Button(root,command=delete,text='Delete',width=10,font=('times new roman',16,"bold"),bg='red',cursor="hand2")
-    deleteButton.place(x=900,y=650)
+    deleteButton = Button(root,command=delete,text='Delete',width=10,font=('times new roman',16,"bold"),bg='OrangeRed2',cursor="hand2")
+    deleteButton.place(x=840,y=650)
 
-    updateButton = Button(root,command=lambda: operations('Update Operation','UPDATE DATA',update_data),text='Update',width=10,font=('times new roman',16,"bold"),bg='#A020F0',cursor="hand2")
-    updateButton.place(x=1150,y=650)
+    updateButton = Button(root,command=lambda: operations('Update Operation','UPDATE DATA',update_data),text='Update',width=10,font=('times new roman',16,"bold"),bg='thistle1',cursor="hand2")
+    updateButton.place(x=1100,y=650)
 
     style = ttk.Style()
     style.configure('Treeview',rowheight=25,font=('arial',12,'normal'))
